@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cumple Benjamín Eliel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      text-align: center;
+      background-image: url('https://i.imgur.com/6f0kFTG.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      margin: 50px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 10px;
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 90%;
+      height: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Confirmá tu asistencia<br>al cumple de Benjamín Eliel 🎈</h1>
+    <p class="countdown" id="countdown">Cargando cuenta regresiva...</p>
+
+    <a class="btn" href="https://wa.me/595992852489?text=¡Hola! Confirmo mi asistencia al cumple de Benjamín Eliel 🎉">✅ Confirmar vía WhatsApp</a>
+
+    <h2>📍Ubicación: Familia Miranda Merlo</h2>
+    <iframe src="https://www.google.com/maps?q=Familia+Miranda+Merlo&output=embed"></iframe>
+  </div>
+
+  <script>
+    const targetDate = new Date("2025-08-10T17:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "🎉 ¡Ya comenzó el cumple!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days} días ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
