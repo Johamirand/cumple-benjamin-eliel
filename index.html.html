@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación - Cumple de Benjamín</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i.imgur.com/kfGmQrF.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+        .content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 15px auto;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #25D366;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            max-width: 320px;
+        }
+        .btn.map {
+            background-color: #4285F4;
+        }
+        #countdown {
+            font-size: 18px;
+            color: #FFEB3B;
+            margin: 20px 0;
+        }
+        .foto-cumple {
+            width: 100%;
+            height: auto;
+            max-width: 90%;
+            border-radius: 12px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+    </style>
+
+<style>
+  body {
+    background-image: url('https://i.imgur.com/kBgX6Ik.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: sans-serif;
+  }
+</style>
+
+</head>
+<body>
+    <div class="overlay">
+        <div class="content">
+            <img src="https://i.imgur.com/rlFV7xE.jpeg" alt="Benjamín 1" class="foto-cumple">
+            <img src="https://i.imgur.com/E8Jzv5r.jpeg" alt="Benjamín 2" class="foto-cumple">
+
+            <h1>🎉 ¡Estás invitado!</h1>
+            <p>
+                _¡Hola! Somos la familia Miranda._<br><br>
+                Con muchísima alegría queremos invitarte a celebrar los <strong>2 añitos</strong> de <strong>Benjamín Eliel</strong> 🎉<br><br>
+                <strong>¡Nos haría muy felices contar con tu presencia en esta tarde tan especial para Benjamín!</strong><br><br>
+                
+                ✍🏻 Es muy importante que confirmes tu asistencia antes del <strong>8 de agosto</strong>.
+            </p>
+
+            
+    <div id="countdown">⏳ Cargando cuenta regresiva...</div>
+
+    <div style="margin: 20px 0;">
+        <label for="cantidad" style="display:block;margin-bottom:8px;">👥 ¿Con cuántas personas vas a venir?</label>
+        <input type="number" id="cantidad" name="cantidad" placeholder="Ej: 3" min="1" style="padding:10px;border-radius:6px;border:none;width:80%;max-width:200px;">
+    </div>
+    <a id="btn-confirmar" class="btn" href="#" onclick="enviarWhatsApp()">✅ Confirmar asistencia</a>
+    <script>
+        function enviarWhatsApp() {
+            const cantidad = document.getElementById("cantidad").value;
+            const mensaje = cantidad 
+                ? `Hola, confirmo mi asistencia al cumple de Benjamín 🥳. Iré con ${cantidad} personas.`
+                : "Hola, confirmo mi asistencia al cumple de Benjamín 🥳.";
+            const url = "https://wa.me/595992852489?text=" + encodeURIComponent(mensaje);
+            window.open(url, '_blank');
+        }
+    </script>
+    
+
+            
+            <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Familia+Miranda+Merlo" target="_blank">📍 Ver ubicación</a>
+        </div>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById("countdown");
+        const targetDate = new Date("August 10, 2025 17:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                countdownElement.innerHTML = "🎉 ¡El cumpleaños comenzó!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `⏳ Faltan ${days} días, ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    </script>
+</body>
+</html>
